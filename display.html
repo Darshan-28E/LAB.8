@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Information</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4f46e5;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 15px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .value {
+            color: #4f46e5;
+            font-weight: bold;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #4f46e5;
+            color: white;
+            padding: 13px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background: #3730a3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Submitted User Details</h1>
+
+    <div id="details">
+        <div class="row">
+            <span class="label">Name</span>
+            <span class="value" id="name"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Gender</span>
+            <span class="value" id="gender"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Mobile Number</span>
+            <span class="value" id="mobile"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Email ID</span>
+            <span class="value" id="email"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">City</span>
+            <span class="value" id="city"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">State</span>
+            <span class="value" id="state"></span>
+        </div>
+
+        <div class="row">
+            <span class="label">Country</span>
+            <span class="value" id="country"></span>
+        </div>
+    </div>
+
+    <a href="index.html">Back to Form</a>
+
+</div>
+
+<script>
+    let user = JSON.parse(sessionStorage.getItem("userData"));
+
+    if (user) {
+        document.getElementById("name").textContent = user.name;
+        document.getElementById("gender").textContent = user.gender;
+        document.getElementById("mobile").textContent = user.mobile;
+        document.getElementById("email").textContent = user.email;
+        document.getElementById("city").textContent = user.city;
+        document.getElementById("state").textContent = user.state;
+        document.getElementById("country").textContent = user.country;
+    } else {
+        document.getElementById("details").textContent =
+            "No information found. Please fill in the form first.";
+    }
+</script>
+
+</body>
+</html>
